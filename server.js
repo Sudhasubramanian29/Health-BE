@@ -37,6 +37,8 @@ app.use('/api/trainers',trainerRoutes);
 app.use('/api/feedback',feedbackRoutes);
 app.use('/api/recommend',recommendRoutes);
 app.use('/api/payments',paymentRoutes);
+app.use('/uploads', express.static('uploads'));
+
 // Default Route
 app.get('/', (req, res) => {
   res.send('API is running...');

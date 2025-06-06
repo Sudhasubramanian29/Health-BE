@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const paymentController = require('../controllers/paymentController');
-const { protect } = require('../middleware/authMiddleware');
+const { dummyPayment } = require('../controllers/paymentController');
 
-router.post('/', protect, paymentController.processPayment);
+router.post('/', dummyPayment);
 
-module.exports = router
+module.exports = router;

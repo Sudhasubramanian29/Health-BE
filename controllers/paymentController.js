@@ -1,11 +1,11 @@
+exports.dummyPayment = (req, res) => {
+  const { cardNumber, name, expiry, cvv, amount } = req.body;
 
-const Payment = require('../models/Payment');
-
-exports.processPayment = async (req, res) => {
-  try {
-    const { amount } = req.body;
-    res.status(200).json({ success: true, message: `Dummy payment of ₹${amount} successful.` });
-  } catch (error) {
-    res.status(500).json({ error: 'Payment failed' });
+  if (!cardNumber || !name || !expiry || !cvv) {
+    return res.status(400).json({ error: 'All fields are required' });
   }
+
+  const paymentAmount = amount || 'some amount'; // default or fallback
+
+  return res.status(200).json({ message: `Payment of ₹${paymentAmount} successful.` });
 };

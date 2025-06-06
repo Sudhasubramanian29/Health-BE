@@ -6,7 +6,9 @@ const TrainerProfileSchema = new mongoose.Schema({
   bio: String,
   specialties: [String],
   experience: Number,
-  photo: String
+  photo: { type: String }, // Stores file path or filename
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('TrainerProfile', TrainerProfileSchema);
